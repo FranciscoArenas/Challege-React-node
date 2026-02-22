@@ -55,19 +55,17 @@ const PostList = () => {
                 </td>
               </tr>
             ) : (
-              currentPosts.map((post) => (
+              currentPosts.map(({ id, name, description }) => (
                 <tr
-                  key={post.id}
+                  key={id}
                   className="hover:bg-gray-100">
+                  <td className="border border-gray-300 px-4 py-2">{name}</td>
                   <td className="border border-gray-300 px-4 py-2">
-                    {post.name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {post.description}
+                    {description}
                   </td>
                   <td className="border border-gray-300 px-4 py-2 text-center">
                     <button
-                      onClick={() => handleDelete(post.id)}
+                      onClick={() => handleDelete(id)}
                       className="px-4 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
                       Eliminar
                     </button>
